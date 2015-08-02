@@ -9,21 +9,36 @@ var twitter = "@jaemood";
 var github = "bendroid";
 var mobile = "(555)-555-5555";
 var skills = ["awesomeness", "programming", "teaching", "JS"];
+var locale = "Rochester, NY";
+var pic = "./images/fry.jpg";
 var bio = {
 	"name" : "Ben Collins",
 	"age" : 33,
-	"skills" : skills
+	"skills" : skills,
+	"pic" : pic
 	};
+var welcome = "Welcome to my site!";
+var skillsstart = "Skills at a Glance:";
+
+
+var myPic = HTMLbioPic.replace("%data%", pic);
 var myName = HTMLheaderName.replace("%data%", name);
 var myEmail = HTMLemail.replace("%data%", email);
 var myRole = HTMLheaderRole.replace("%data%", role);
 var myTwitter = HTMLtwitter.replace("%data%", twitter);
 var myGithub = HTMLgithub.replace("%data%", github);
 var myMobile = HTMLmobile.replace("%data%", mobile);
+var myLocation = HTMLlocation.replace("%data%", locale);
+var myWelcome = HTMLwelcomeMsg.replace("%data%", welcome);
+var mySkillsStart = HTMLskillsStart.replace("%data%", skillsstart);
+var mySkills = HTMLskills.replace("%data%", skills);
 
 $("#header").prepend(myRole);
 $("#header").prepend(myName);
-$("#main").append(bio.skills);
+$("#header").append(myWelcome);
+$("#header").append(myPic);
+$("#header").append(skillsstart);
+$("#header").append(skills);
 $("#footerContacts").append(myEmail);
 $("#footerContacts").append(myTwitter);
 $("#footerContacts").append(myGithub);
