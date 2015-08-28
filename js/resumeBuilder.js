@@ -93,9 +93,11 @@ var myMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 var myLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var myWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
+
 //var mySkillsStart = HTMLskillsStart.replace("%data%", skillsstart);
 //var formattedSkill = HTMLskillsStart.replace("%data%", skillsstart);
 var myWorkStart = HTMLworkStart.replace("%data%", work.start);
+var myWorkTitle = HTMLworkTitle.replace("%data%", work.position);
 
 /*
 HTMLworkEmployer
@@ -130,7 +132,7 @@ $("#topContacts").append(myGithub);
 $("#topContacts").append(myMobile);
 $("#topContacts").append(myLocation);
 $("#workExperience").append(myWorkStart);
-$("#workExperience").append(work.position);
+$("#workExperience").append(myWorkTitle);
 $("#footerContacts").append(myEmail);
 $("#footerContacts").append(myTwitter);
 $("#footerContacts").append(myGithub);
