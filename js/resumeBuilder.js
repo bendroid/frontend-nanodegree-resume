@@ -41,10 +41,10 @@ var bio = {
 };
 
 var work = {
-	"workPosition": "Doing Work",
+	"position": "Doing Work",
 	"workEmployer": "My Job",
 	"workYears": 0.3,
-	"work.start": "2010"
+	"workstart": "2010"
 };
 
 
@@ -92,7 +92,9 @@ var myGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var myMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 var myLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var myWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var mySkillsStart = HTMLskillsStart.replace("%data%", skillsstart);
+
+//var mySkillsStart = HTMLskillsStart.replace("%data%", skillsstart);
+//var formattedSkill = HTMLskillsStart.replace("%data%", skillsstart);
 var myWorkStart = HTMLworkStart.replace("%data%", work.start);
 
 /*
@@ -102,27 +104,67 @@ HTMLworkDates
 HTMLworkLocation
 HTMLworkDescription
 */
-var mySkills = HTMLskills.replace("%data%", bio.skills[0] + "<br>" + bio.skills[1]);
+//var mySkills = HTMLskills.replace("%data%", bio.skills[0] + "<br>" + bio.skills[1]);
 //var mySkills = HTMLskills.replace("%data%", skills);
 
 $("#header").prepend(myRole);
 $("#header").prepend(myName);
 $("#header").append(myWelcome);
 $("#header").append(myPic);
-$("#header").append(mySkillsStart);
-$("#header").append(mySkills);
+if(bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+
+  var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+   $("#skills").append(formattedSkill);
+    var formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    $("#skills").append(formattedSkill);
+}
+
 $("#topContacts").append(myEmail);
 $("#topContacts").append(myTwitter);
 $("#topContacts").append(myGithub);
 $("#topContacts").append(myMobile);
 $("#topContacts").append(myLocation);
 $("#workExperience").append(myWorkStart);
-$("#workExperience").append(work.workPosition);
+$("#workExperience").append(work.position);
 $("#footerContacts").append(myEmail);
 $("#footerContacts").append(myTwitter);
 $("#footerContacts").append(myGithub);
 $("#footerContacts").append(myMobile);
 $("#footerContacts").append(myLocation);
-$("main").append(work["position"]);
-$("main").append(work.start);
-$("main").append(education.name);
+$("#main").append(work["position"]);
+$("#main").append(work.start);
+$("#main").append(education.name);
+
+if(document.getElementsByClassName('flex-item').length === 0) {
+          // document.style.backgroundColor = "black";
+    			document.getElementById('topContacts').style.backgroundColor = "black";
+        }
+        if(document.getElementsByTagName('h1').length === 0) {
+          // document.style.display = 'none';
+    					document.getElementById('header').style.backgroundColor = "black";
+        }
+        if(document.getElementsByClassName('work-entry').length === 0) {
+          // document.getElementById('workExperience').style.display = 'none';
+    					document.getElementById('workExperience').style.backgroundColor = "black";
+        }
+        if(document.getElementsByClassName('project-entry').length === 0) {
+          // document.getElementById('projects').style.display = 'none';
+    					document.getElementById('projects').style.backgroundColor = "black";
+        }
+        if(document.getElementsByClassName('education-entry').length === 0) {
+          // document.getElementById('education').style.display = 'none';
+    					document.getElementById('education').style.backgroundColor = "black";
+        }
+        if(document.getElementsByClassName('flex-item').length === 0) {
+          // document.getElementById('lets-connect').style.display = 'none';
+    					document.getElementById('lets-connect').style.backgroundColor = "black";
+        }
+        if(document.getElementById('map') === null) {
+          // document.getElementById('mapDiv').style.display = 'none';
+    					document.getElementById('mapDiv').style.backgroundColor = "black";
+        }
