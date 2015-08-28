@@ -1,30 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-//$("#main").append("Ben Collins");
-/*
-var name = "Ben Collins";
-var role = "Web Developer";
-var email = "collins.drums@gmail.com";
-var twitter = "@jaemood";
-var github = "bendroid";
-var mobile = "(555)-555-5555";
-var skills = ["awesomeness", "programming", "teaching", "JS"];
-
-var locale = "Rochester, NY";
-var pic = "./images/fry.jpg";
-var welcome = "Welcome to my site!";
-*/
-var skillsstart = "Skills at a Glance:";
-
-/*
-var bio = {
-	"name" : "Ben Collins",
-	"city" : "Rochester,NY",
-	"skills" : skills
-};
-*/
-
 var bio = {
 	"name" : "Ben Collins",
 	"role" : "Web Developer",
@@ -36,17 +9,26 @@ var bio = {
 		"location": "Rochester, NY"
 	},
 	"welcomeMessage": "Welcome to my site!",
+	"skillsstart": "Skills at a Glance:",
 	"skills": ["awesomeness", "programming", "teaching", "JS"],
 	"bioPic": "./images/fry.jpg"
 };
 
+/*
 var work = {
 	"position": "Doing Work",
 	"workEmployer": "My Job",
 	"workYears": 0.3,
 	"workstart": "2010"
 };
+*/
 
+var work = {
+	"employer": ["Company 1", "Company 2"],
+	"position2": ["My Job 1", "My Job 2"],
+	"years": 0.3,
+	"start": "2010"
+};
 
 
 var education = {
@@ -94,20 +76,11 @@ var myLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var myWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
-//var mySkillsStart = HTMLskillsStart.replace("%data%", skillsstart);
-//var formattedSkill = HTMLskillsStart.replace("%data%", skillsstart);
+
 var myWorkStart = HTMLworkStart.replace("%data%", work.start);
 var myWorkTitle = HTMLworkTitle.replace("%data%", work.position);
 
-/*
-HTMLworkEmployer
-HTMLworkTitle
-HTMLworkDates
-HTMLworkLocation
-HTMLworkDescription
-*/
-//var mySkills = HTMLskills.replace("%data%", bio.skills[0] + "<br>" + bio.skills[1]);
-//var mySkills = HTMLskills.replace("%data%", skills);
+
 
 $("#header").prepend(myRole);
 $("#header").prepend(myName);
@@ -116,15 +89,33 @@ $("#header").append(myPic);
 if(bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 
-  var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
-   $("#skills").append(formattedSkill);
+    var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+    $("#skills").append(formattedSkill);
     var formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
     $("#skills").append(formattedSkill);
     var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
     $("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
     $("#skills").append(formattedSkill);
 }
+
+if(work.employer.length > 0) {
+  $("#workExperience").append(HTMLworkStart);
+
+    var formattedEmployer = HTMLworkEmployer.replace("%data%",work.employer[0]);
+    $(".work-entry").append(formattedEmployer);
+    var formattedPosition = HTMLworkTitle.replace("%data%",work.position2[0]);
+    $(".work-entry").append(formattedPosition);
+};
+
+if(work.position2.length > 0) {
+  //$("#workExperience").append(HTMLworkStart);
+
+    var formattedEmployer = HTMLworkEmployer.replace("%data%",work.employer[1]);
+    $(".work-entry").append(formattedEmployer);
+    var formattedPosition = HTMLworkTitle.replace("%data%",work.position2[1]);
+    $(".work-entry").append(formattedPosition);
+};
 
 $("#topContacts").append(myEmail);
 $("#topContacts").append(myTwitter);
