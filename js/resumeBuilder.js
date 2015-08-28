@@ -1,35 +1,26 @@
 var bio = {
 	"name" : "Ben Collins",
 	"role" : "Web Developer",
-	"contacts": {
-		"mobile": "(555)-555-5555",
-		"email": "email@myemail.com",
-		"github": "bendroid",
-		"twitter": "@jaemood",
-		"location": "Rochester, NY"
-	},
 	"welcomeMessage": "Welcome to my site!",
 	"skillsstart": "Skills at a Glance:",
 	"skills": ["awesomeness", "programming", "teaching", "JS"],
 	"bioPic": "./images/fry.jpg"
 };
 
-/*
-var work = {
-	"position": "Doing Work",
-	"workEmployer": "My Job",
-	"workYears": 0.3,
-	"workstart": "2010"
+var contacts = {
+	"mobile": "(555)-555-5555",
+	"email": "email@myemail.com",
+	"github": "bendroid",
+	"twitter": "@jaemood",
+	"location": "Rochester, NY"
 };
-*/
 
 var work = {
 	"employer": ["Company 1", "Company 2"],
-	"position2": ["My Job 1", "My Job 2"],
+	"position": ["My Job 1", "My Job 2"],
 	"years": 0.3,
 	"start": "2010"
 };
-
 
 var education = {
   "schools": [
@@ -60,32 +51,20 @@ var education = {
   ]
 }
 
+var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedEmail = HTMLemail.replace("%data%", contacts.email);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedTwitter = HTMLtwitter.replace("%data%", contacts.twitter);
+var formattedGithub = HTMLgithub.replace("%data%", contacts.github);
+var formattedMobile = HTMLmobile.replace("%data%", contacts.mobile);
+var formattedLocation = HTMLlocation.replace("%data%", contacts.location);
+var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-education["name"] = "School of Hard Knocks";
-education["years"] = "2001-2005"
-education["city"] = "New York";
-
-var myPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var myName = HTMLheaderName.replace("%data%", bio.name);
-var myEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var myRole = HTMLheaderRole.replace("%data%", bio.role);
-var myTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var myGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-var myMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var myLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-var myWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
-
-
-var myWorkStart = HTMLworkStart.replace("%data%", work.start);
-var myWorkTitle = HTMLworkTitle.replace("%data%", work.position);
-
-
-
-$("#header").prepend(myRole);
-$("#header").prepend(myName);
-$("#header").append(myWelcome);
-$("#header").append(myPic);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedWelcome);
+$("#header").append(formattedPic);
 if(bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 
@@ -104,34 +83,29 @@ if(work.employer.length > 0) {
 
     var formattedEmployer = HTMLworkEmployer.replace("%data%",work.employer[0]);
     $(".work-entry").append(formattedEmployer);
-    var formattedPosition = HTMLworkTitle.replace("%data%",work.position2[0]);
+    var formattedPosition = HTMLworkTitle.replace("%data%",work.position[0]);
     $(".work-entry").append(formattedPosition);
 };
 
-if(work.position2.length > 0) {
+if(work.position.length > 0) {
   //$("#workExperience").append(HTMLworkStart);
 
     var formattedEmployer = HTMLworkEmployer.replace("%data%",work.employer[1]);
     $(".work-entry").append(formattedEmployer);
-    var formattedPosition = HTMLworkTitle.replace("%data%",work.position2[1]);
+    var formattedPosition = HTMLworkTitle.replace("%data%",work.position[1]);
     $(".work-entry").append(formattedPosition);
 };
 
-$("#topContacts").append(myEmail);
-$("#topContacts").append(myTwitter);
-$("#topContacts").append(myGithub);
-$("#topContacts").append(myMobile);
-$("#topContacts").append(myLocation);
-$("#workExperience").append(myWorkStart);
-$("#workExperience").append(myWorkTitle);
-$("#footerContacts").append(myEmail);
-$("#footerContacts").append(myTwitter);
-$("#footerContacts").append(myGithub);
-$("#footerContacts").append(myMobile);
-$("#footerContacts").append(myLocation);
-$("#main").append(work["position"]);
-$("#main").append(work.start);
-$("#main").append(education.name);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedMobile);
+$("#topContacts").append(formattedLocation);
+$("#footerContacts").append(formattedEmail);
+$("#footerContacts").append(formattedTwitter);
+$("#footerContacts").append(formattedGithub);
+$("#footerContacts").append(formattedMobile);
+$("#footerContacts").append(formattedLocation);
 
 if(document.getElementsByClassName('flex-item').length === 0) {
           // document.style.backgroundColor = "black";
